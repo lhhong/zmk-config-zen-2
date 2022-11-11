@@ -1,6 +1,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/mouse.h>
 
 / {
   chosen {
@@ -15,8 +16,8 @@
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODS";
             #binding-cells = <2>;
-            tapping-term-ms = <200>;
-            quick-tap-ms = <100>;
+            tapping-term-ms = <300>;
+            quick-tap-ms = <150>;
             global-quick-tap;
             flavor = "balanced";
             bindings = <&kp>, <&kp>;
@@ -25,8 +26,9 @@
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODS_SHFT";
             #binding-cells = <2>;
-            tapping-term-ms = <200>;
-            quick-tap-ms = <0>;
+            tapping-term-ms = <300>;
+            quick-tap-ms = <50>;
+            global-quick-tap;
             flavor = "balanced";
             bindings = <&kp>, <&kp>;
         };
@@ -56,43 +58,73 @@
             label = "COLEMAK";
             bindings = <
 
-   &kp TAB     &kp Q         &kp W       &kp F       &kp P         &kp B         &kp J      &kp L         &kp U       &kp Y       &kp SEMI     &kp BSLH
+   &kp TAB     &kp Q         &kp W       &kp F       &kp P         &kp B                      &kp J      &kp L         &kp U       &kp Y       &kp SEMI     &kp BSLH
 
-   &kp ESC     &hm LCTRL A   &hm LALT R  &hm LGUI S  &hms LSHFT T  &kp G         &kp M      &hms RSHFT N  &hm RGUI E  &hm RALT I  &hm RCTRL O  &kp SQT
+   &kp ESC     &hm LCTRL A   &hm LALT R  &hm LGUI S  &hms LSHFT T  &kp G                      &kp M      &hms RSHFT N  &hm RGUI E  &hm RALT I  &hm RCTRL O  &kp SQT
 
-   &caps_word  &kp Z         &kp X       &kp C       &kp D         &kp V         &kp K      &kp H         &kp COMMA   &kp DOT     &kp FSLH     &kp CAPS
+   &caps_word  &kp Z         &kp X       &kp C       &kp D         &kp V                      &kp K      &kp H         &kp COMMA   &kp DOT     &kp FSLH     &kp CAPS
 
 
-                                         &sm 2 2     &kp SPACE     &sm 2 2       &kp RET    &bspc_del      &sm 1 1
+                                         &to 3       &kp SPACE     &sm 2 2                    &kp RET    $sm 1 1       &bspc_del
             >;
         };
         lower_layer {
             label = "NUM_SYM";
             bindings = <
 
-   &kp TAB     &kp Q         &kp W       &kp F       &kp P         &kp B         &kp J      &kp N7         &kp N8       &kp N9       &kp SEMI     &bt BT_CLR
+   &kp TILDE    &kp EXCL       &kp STAR         &kp LBKT       &kp RBKT         &none                &kp COMMA    &kp N7         &kp N8       &kp N9       &kp MINUS    &bt BT_CLR
 
-   &kp ESC     &hm LCTRL A   &hm LALT R  &hm LGUI S  &hms LSHFT T  &kp G         &kp M      &hms RSHFT N4  &hm RGUI N5  &hm RALT N6  &hm RCTRL O  &bt BT_SEL 0
+   &kp GRAVE    &hm LCTRL AT   &hm LALT HASH    &hm LGUI LPAR  &hms LSHFT RPAR  &kp CARET            &kp DOT      &hms RSHFT N4  &hm RGUI N5  &hm RALT N6  &hm RCTRL EQUAL    &kp PLUS
 
-   &caps_word  &kp Z         &kp X       &kp C       &kp D         &kp V         &kp K      &kp N1         &kp N2       &kp N3       &kp FSLH     &kp CAPS
+   &none        &kp PRCNT      &kp DLLR         &kp LBRC       &kp RBRC         &kp AMPS             &kp N0       &kp N1         &kp N2       &kp N3       &kp UNDER    &bt BT_SEL 0
 
 
-                                         &sm 2 2     &sm 2 2       &kp SPACE     &kp RET    &to 0          &to 1
+                                                &to 3          &sm SPACE        &sm 2 2              &kp RET      &to 1          &to 0
             >;
         };
 
         raise_layer {
-            label = "SYMBOL";
-// -----------------------------------------------------------------------------------------
-// |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
-// | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
-// | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
-//                    | GUI |     | SPC |   | ENT |     | ALT |
+            label = "FN_ARROW";
             bindings = <
-   &kp  TAB  &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR &kp BSPC
-   &kp LCTRL &trans   &trans &trans   &trans   &trans      &kp MINUS &kp EQUAL &kp LBKT        &kp RBKT &kp BSLH &kp GRAVE
-   &kp LSHFT &trans   &trans &trans   &trans   &trans      &kp UNDER &kp PLUS  &kp LBRC        &kp RBRC &kp PIPE &kp TILDE
-                    	     &kp LGUI &trans   &kp SPACE   &kp RET   &trans    &kp RALT
+
+   &none    &kp F9        &kp F10       &kp F11      &kp F12        &none               &kp DOWN    &kp RIGHT        &kp UP         &none           &kp C_VOL_UP      &kp C_BRI_UP
+
+   &none    &hm LCTRL F5  &hm LALT F6   &hm LGUI F7  &hms LSHFT F8  &none               &none       &hms RSHFT LEFT  &hm RGUI DOWN  &hm RALT RIGHT  &hm RCTRL C_MUTE  &kp C_BRI_AUTO
+
+   &none    &kp F1        &kp F2        &kp F3       &kp F4         &none               &kp UP      &kp LEFT         &none          &none           &kp C_VOL_DOWN    &kp C_BRI_DN
+
+
+                                        &to 3        &sm SPACE      &to 2               &kp RET     &sm 1 1          &to 0
+            >;
+        };
+
+        mouse_layer {
+            label = "MOUSE";
+            bindings = <
+
+   &none    &none      &none            &mmv MOVE_UP     &none            &none               &none       &none       &none     &none     &none      &none
+
+   &none    &mo 4      &mmv MOVE_LEFT   &mmv MOVE_DOWN   &mmv MOVE_RIGHT  &none               &none       &kp RSHFT   &kp RGUI  &kp RALT  &kp RCTRL  &none
+
+   &none    &kp Z      &kp X            &kp C            &kp D            &kp V               &none       &none       &none     &none     &none      &none
+
+
+                                        &mkp MCLK        &mkp LCLK        &mkp RCLK           &mkp RCLK   &mkp LCLK   &to 0
+            >;
+        };
+
+        scroll_layer {
+            label = "SCROLL";
+            bindings = <
+
+   &none    &none      &none             &mmv SCROLL_UP     &none              &none               &none       &none       &none     &none     &none      &none
+
+   &none    &trans     &mmv SCROLL_LEFT  &mmv SCROLL_DOWN   &mmv SCROLL_RIGHT  &none               &none       &kp RSHFT   &kp RGUI  &kp RALT  &kp RCTRL  &none
+
+   &none    &kp Z      &kp X             &kp C              &kp D              &kp V               &none       &none       &none     &none     &none      &none
+
+
+                                         &mkp MCLK          &mkp LCLK          &mkp RCLK           &mkp RCLK   &mkp LCLK   &to 0
             >;
         };
     };
