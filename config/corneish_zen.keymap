@@ -117,9 +117,9 @@
             label = "SCROLL";
             bindings = <
 
-   &none    &none      &none             &mmv SCROLL_UP     &none              &none               &none       &none       &none     &none     &none      &none
+   &none    &none      &none             &mwh SCROLL_UP     &none              &none               &none       &none       &none     &none     &none      &none
 
-   &none    &trans     &mmv SCROLL_LEFT  &mmv SCROLL_DOWN   &mmv SCROLL_RIGHT  &none               &none       &kp RSHFT   &kp RGUI  &kp RALT  &kp RCTRL  &none
+   &none    &trans     &mwh SCROLL_LEFT  &mwh SCROLL_DOWN   &mwh SCROLL_RIGHT  &none               &none       &kp RSHFT   &kp RGUI  &kp RALT  &kp RCTRL  &none
 
    &none    &kp Z      &kp X             &kp C              &kp D              &kp V               &none       &none       &none     &none     &none      &none
 
