@@ -1,11 +1,11 @@
 manifest:
   remotes:
     - name: zmkfirmware
-      url-base: https://github.com/LOWPROKB
+      url-base: https://github.com/caksylar
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: corne-ish-zen-v2
+      revision: caksoylar/zen-v2+mouse
       import: app/west.yml
   self:
     path: config
