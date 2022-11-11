@@ -65,18 +65,18 @@
    &caps_word  &kp Z         &kp X       &kp C       &kp D         &kp V                      &kp K      &kp H         &kp COMMA   &kp DOT     &kp FSLH     &kp CAPS
 
 
-                                         &to 3       &kp SPACE     &sm 2 2                    &kp RET    $sm 1 1       &bspc_del
+                                         &to 3       &kp SPACE     &sm 2 2                    &kp RET    &sm 1 1       &bspc_del
             >;
         };
         lower_layer {
             label = "NUM_SYM";
             bindings = <
 
-   &kp TILDE    &kp EXCL       &kp STAR         &kp LBKT       &kp RBKT         &none                &kp COMMA    &kp N7         &kp N8       &kp N9       &kp MINUS    &bt BT_CLR
+   &kp TILDE    &kp EXCL       &kp STAR         &kp LBKT       &kp RBKT         &none                &kp COMMA    &kp N7         &kp N8       &kp N9       &kp MINUS       &bt BT_CLR
 
-   &kp GRAVE    &hm LCTRL AT   &hm LALT HASH    &hm LGUI LPAR  &hms LSHFT RPAR  &kp CARET            &kp DOT      &hms RSHFT N4  &hm RGUI N5  &hm RALT N6  &hm RCTRL EQUAL    &kp PLUS
+   &kp GRAVE    &hm LCTRL AT   &hm LALT HASH    &hm LGUI LPAR  &hms LSHFT RPAR  &kp CARET            &kp DOT      &hms RSHFT N4  &hm RGUI N5  &hm RALT N6  &hm RCTRL EQUAL  &kp PLUS
 
-   &none        &kp PRCNT      &kp DLLR         &kp LBRC       &kp RBRC         &kp AMPS             &kp N0       &kp N1         &kp N2       &kp N3       &kp UNDER    &bt BT_SEL 0
+   &none        &kp PRCNT      &kp DLLR         &kp LBRC       &kp RBRC         &kp AMPS             &kp N0       &kp N1         &kp N2       &kp N3       &kp UNDER        &bt BT_SEL 0
 
 
                                                 &to 3          &sm SPACE        &sm 2 2              &kp RET      &to 1          &to 0
