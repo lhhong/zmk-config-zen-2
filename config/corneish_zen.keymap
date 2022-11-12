@@ -58,7 +58,7 @@
         sm_1: sticky_momentary_Layer_1 {
             compatible = "zmk,behavior-hold-tap";
             label = "STICKY_MOMENTARY_LAYER_1";
-            #binding-cells = <0>;
+            #binding-cells = <2>;
             tapping-term-ms = <200>;
             quick-tap-ms = <50>;
             global-quick-tap;
@@ -76,7 +76,7 @@
         sm_2: sticky_momentary_Layer_2 {
             compatible = "zmk,behavior-hold-tap";
             label = "STICKY_MOMENTARY_LAYER_2";
-            #binding-cells = <0>;
+            #binding-cells = <2>;
             tapping-term-ms = <200>;
             quick-tap-ms = <50>;
             global-quick-tap;
