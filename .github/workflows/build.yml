@@ -2,4 +2,4 @@ on: [push, pull_request, workflow_dispatch]
 
 jobs:
   build:
-    uses: caksoylar/zmk/.github/workflows/build-user-config.yml@caksoylar/zen-v2+mouse
+    uses: lhhong/zmk/.github/workflows/build-user-config.yml@zen2-mouse-power-layer
