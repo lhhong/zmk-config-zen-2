@@ -55,6 +55,13 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
+        ltd_1: layer_tap_dance_1 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "LAYER_TD_1";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&sl 1>, <&to 1>;
+        };
         sm_1: sticky_momentary_Layer_1 {
             compatible = "zmk,behavior-hold-tap";
             label = "STICKY_MOMENTARY_LAYER_1";
@@ -65,14 +72,14 @@
             flavor = "balanced";
             bindings = <&mo 1>, <&ltd_1>;
         };
-        ltd_1: layer_tap_dance_1 {
+
+        ltd_2: layer_tap_dance_2 {
             compatible = "zmk,behavior-tap-dance";
-            label = "LAYER_TD_1";
+            label = "LAYER_TD_2";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&sl 1>, <&to 1>;
+            bindings = <&sl 2>, <&to 2>;
         };
-
         sm_2: sticky_momentary_Layer_2 {
             compatible = "zmk,behavior-hold-tap";
             label = "STICKY_MOMENTARY_LAYER_2";
@@ -82,13 +89,6 @@
             global-quick-tap;
             flavor = "balanced";
             bindings = <&mo 2>, <&ltd_2>;
-        };
-        ltd_2: layer_tap_dance_2 {
-            compatible = "zmk,behavior-tap-dance";
-            label = "LAYER_TD_2";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&sl 2>, <&to 2>;
         };
 
         mmvf: mouse_move_fast {
