@@ -55,40 +55,15 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-        ltd_1: layer_tap_dance_1 {
-            compatible = "zmk,behavior-tap-dance";
-            label = "LAYER_TD_1";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&sl 1>, <&to 1>;
-        };
-        sm_1: sticky_momentary_Layer_1 {
+        sm: sticky_momentary_layer {
             compatible = "zmk,behavior-hold-tap";
-            label = "STICKY_MOMENTARY_LAYER_1";
+            label = "STICKY_MOMENTARY_LAYER";
             #binding-cells = <2>;
             tapping-term-ms = <200>;
             quick-tap-ms = <50>;
             global-quick-tap;
             flavor = "balanced";
-            bindings = <&mo 1>, <&ltd_1>;
-        };
-
-        ltd_2: layer_tap_dance_2 {
-            compatible = "zmk,behavior-tap-dance";
-            label = "LAYER_TD_2";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&sl 2>, <&to 2>;
-        };
-        sm_2: sticky_momentary_Layer_2 {
-            compatible = "zmk,behavior-hold-tap";
-            label = "STICKY_MOMENTARY_LAYER_2";
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
-            quick-tap-ms = <50>;
-            global-quick-tap;
-            flavor = "balanced";
-            bindings = <&mo 2>, <&ltd_2>;
+            bindings = <&mo>, <&sl>;
         };
 
         mmvf: mouse_move_fast {
@@ -123,7 +98,7 @@
    &caps_word  &kp Z         &kp X       &kp C       &kp D         &kp V                      &kp K      &kp H         &kp COMMA   &kp DOT     &kp FSLH     &kp CAPS
 
 
-                                         &to 3       &kp SPACE     &sm_2                      &kp RET    &sm_1         &bspc_del
+                                         &to 3       &kp SPACE     &sm 2 2                    &kp RET    &sm 1 1         &bspc_del
             >;
         };
         lower_layer {
@@ -134,10 +109,10 @@
 
    &kp GRAVE    &hm LCTRL AT   &hm LALT HASH    &hm LGUI LPAR  &hms LSHFT RPAR  &kp CARET            &kp DOT      &hms RSHFT N4  &hm RGUI N5  &hm RALT N6  &hm RCTRL EQUAL  &kp PLUS
 
-   &none        &kp PRCNT      &kp DLLR         &kp LBRC       &kp RBRC         &kp AMPS             &kp N0       &kp N1         &kp N2       &kp N3       &kp UNDER        &bt BT_SEL 0
+   &to 1        &kp PRCNT      &kp DLLR         &kp LBRC       &kp RBRC         &kp AMPS             &kp N0       &kp N1         &kp N2       &kp N3       &kp UNDER        &bt BT_SEL 0
 
 
-                                                &to 3          &kp SPACE        &sm_2                &kp RET      &to 1          &to 0
+                                                &to 3          &kp SPACE        &sm 2 2              &kp RET      &to 1          &to 0
             >;
         };
 
@@ -149,10 +124,10 @@
 
    &none    &hm LCTRL F5  &hm LALT F6   &hm LGUI F7  &hms LSHFT F8  &none               &none       &hms RSHFT LEFT  &hm RGUI DOWN  &hm RALT RIGHT  &hm RCTRL C_MUTE  &kp C_BRI_AUTO
 
-   &none    &kp F1        &kp F2        &kp F3       &kp F4         &none               &kp UP      &kp LEFT         &none          &none           &kp C_VOL_DN      &kp C_BRI_DN
+   &to 2    &kp F1        &kp F2        &kp F3       &kp F4         &none               &kp UP      &kp LEFT         &none          &none           &kp C_VOL_DN      &kp C_BRI_DN
 
 
-                                        &to 3        &kp SPACE      &to 2               &kp RET     &sm_1            &to 0
+                                        &to 3        &kp SPACE      &to 2               &kp RET     &sm 1 1          &to 0
             >;
         };
 
