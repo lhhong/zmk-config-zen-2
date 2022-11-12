@@ -125,7 +125,7 @@
             >;
         };
 
-        mouse_layer {
+        mouse_layer_fast {
             label = "MOUSE_FAST";
             bindings = <
 
@@ -140,7 +140,7 @@
             >;
         };
 
-        mouse_layer {
+        mouse_layer_prec {
             label = "MOUSE_PREC";
             bindings = <
 
