@@ -3,15 +3,20 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/mouse.h>
 
-#define MOVE_UP_F MOVE_VERT(-2000)
-#define MOVE_DOWN_F MOVE_VERT(2000)
-#define MOVE_LEFT_F MOVE_HOR(-2000)
-#define MOVE_RIGHT_F MOVE_HOR(2000)
+#define MOVE_UP MOVE_VERT(-1000)
+#define MOVE_DOWN MOVE_VERT(1000)
+#define MOVE_LEFT MOVE_HOR(-1000)
+#define MOVE_RIGHT MOVE_HOR(1000)
 
-#define SCROLL_UP_F SCROLL_VERT(20)
-#define SCROLL_DOWN_F SCROLL_VERT(-20)
-#define SCROLL_LEFT_F SCROLL_HOR(-20)
-#define SCROLL_RIGHT_F SCROLL_HOR(20)
+#define MOVE_UP_F MOVE_VERT(-3000)
+#define MOVE_DOWN_F MOVE_VERT(3000)
+#define MOVE_LEFT_F MOVE_HOR(-3000)
+#define MOVE_RIGHT_F MOVE_HOR(3000)
+
+#define SCROLL_UP_F SCROLL_VERT(30)
+#define SCROLL_DOWN_F SCROLL_VERT(-30)
+#define SCROLL_LEFT_F SCROLL_HOR(-30)
+#define SCROLL_RIGHT_F SCROLL_HOR(30)
 
 / {
   chosen {
@@ -49,15 +54,41 @@
             bindings = <&kp BACKSPACE>, <&kp DELETE>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        sm: sticky_momentary_Layer {
+
+        sm_1: sticky_momentary_Layer_1 {
             compatible = "zmk,behavior-hold-tap";
-            label = "STICKY_MOMENTARY_LAYER";
-            #binding-cells = <2>;
+            label = "STICKY_MOMENTARY_LAYER_1";
+            #binding-cells = <0>;
             tapping-term-ms = <200>;
             quick-tap-ms = <50>;
             global-quick-tap;
             flavor = "balanced";
-            bindings = <&mo>, <&sl>;
+            bindings = <&mo 1>, <&ltd_1>;
+        };
+        ltd_1: layer_tap_dance_1 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "LAYER_TD_1";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&sl 1>, <&to 1>;
+        };
+
+        sm_2: sticky_momentary_Layer_2 {
+            compatible = "zmk,behavior-hold-tap";
+            label = "STICKY_MOMENTARY_LAYER_2";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <50>;
+            global-quick-tap;
+            flavor = "balanced";
+            bindings = <&mo 2>, <&ltd_2>;
+        };
+        ltd_2: layer_tap_dance_2 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "LAYER_TD_2";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&sl 2>, <&to 2>;
         };
 
         mmvf: mouse_move_fast {
@@ -92,7 +123,7 @@
    &caps_word  &kp Z         &kp X       &kp C       &kp D         &kp V                      &kp K      &kp H         &kp COMMA   &kp DOT     &kp FSLH     &kp CAPS
 
 
-                                         &to 3       &kp SPACE     &sm 2 2                    &kp RET    &sm 1 1       &bspc_del
+                                         &to 3       &kp SPACE     &sm_2                      &kp RET    &sm_1         &bspc_del
             >;
         };
         lower_layer {
@@ -106,7 +137,7 @@
    &none        &kp PRCNT      &kp DLLR         &kp LBRC       &kp RBRC         &kp AMPS             &kp N0       &kp N1         &kp N2       &kp N3       &kp UNDER        &bt BT_SEL 0
 
 
-                                                &to 3          &kp SPACE        &sm 2 2              &kp RET      &to 1          &to 0
+                                                &to 3          &kp SPACE        &sm_2                &kp RET      &to 1          &to 0
             >;
         };
 
@@ -121,7 +152,7 @@
    &none    &kp F1        &kp F2        &kp F3       &kp F4         &none               &kp UP      &kp LEFT         &none          &none           &kp C_VOL_DN      &kp C_BRI_DN
 
 
-                                        &to 3        &kp SPACE      &to 2               &kp RET     &sm 1 1          &to 0
+                                        &to 3        &kp SPACE      &to 2               &kp RET     &sm_1            &to 0
             >;
         };
 
@@ -129,7 +160,7 @@
             label = "MOUSE_FAST";
             bindings = <
 
-   &none    &none      &none               &mmvf MOVE_UP_F     &none               &none               &none       &none       &none     &none     &none      &none
+   &kp TAB  &none      &none               &mmvf MOVE_UP_F     &none               &none               &none       &none       &none     &none     &none      &none
 
    &mo 5    &mo 4      &mmvf MOVE_LEFT_F   &mmvf MOVE_DOWN_F   &mmvf MOVE_RIGHT_F  &none               &none       &kp RSHFT   &kp RGUI  &kp RALT  &kp RCTRL  &none
 
@@ -144,7 +175,7 @@
             label = "MOUSE_PREC";
             bindings = <
 
-   &none    &none      &none            &mmv MOVE_UP     &none            &none               &none       &none       &none     &none     &none      &none
+   &kp TAB  &none      &none            &mmv MOVE_UP     &none            &none               &none       &none       &none     &none     &none      &none
 
    &trans   &trans     &mmv MOVE_LEFT   &mmv MOVE_DOWN   &mmv MOVE_RIGHT  &none               &none       &kp RSHFT   &kp RGUI  &kp RALT  &kp RCTRL  &none
 
@@ -159,7 +190,7 @@
             label = "SCROLL";
             bindings = <
 
-   &none    &none      &none                &mwha SCROLL_UP_F     &none                 &none               &none       &none       &none     &none     &none      &none
+   &kp TAB  &none      &none                &mwha SCROLL_UP_F     &none                 &none               &none       &none       &none     &none     &none      &none
 
    &trans   &trans     &mwha SCROLL_LEFT_F  &mwha SCROLL_DOWN_F   &mwha SCROLL_RIGHT_F  &none               &none       &kp RSHFT   &kp RGUI  &kp RALT  &kp RCTRL  &none
 
