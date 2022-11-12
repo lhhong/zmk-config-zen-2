@@ -55,12 +55,13 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-        sln: behavior_sticky_layer_nq {
+        sll: behavior_sticky_layer_2_sec {
 			compatible = "zmk,behavior-sticky-key";
 			label = "STICKY_LAYER";
 			#binding-cells = <1>;
 			release-after-ms = <2000>;
 			bindings = <&mo>;
+            quick-release;
 		};
         sm: sticky_momentary_layer {
             compatible = "zmk,behavior-hold-tap";
@@ -70,7 +71,7 @@
             quick-tap-ms = <50>;
             global-quick-tap;
             flavor = "balanced";
-            bindings = <&mo>, <&sln>;
+            bindings = <&mo>, <&sll>;
         };
 
         mmvf: mouse_move_fast {

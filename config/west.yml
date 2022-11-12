@@ -1,11 +1,11 @@
 manifest:
   remotes:
     - name: zmkfirmware
-      url-base: https://github.com/caksoylar
+      url-base: https://github.com/lhhong
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: caksoylar/zen-v2+mouse
+      revision: zen2-mouse-power-layer
       import: app/west.yml
   self:
     path: config
