@@ -3,15 +3,15 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/mouse.h>
 
-#define MOVE_UP_M MOVE_VERT(-1000)
-#define MOVE_DOWN_M MOVE_VERT(1000)
-#define MOVE_LEFT_M MOVE_HOR(-1000)
-#define MOVE_RIGHT_M MOVE_HOR(1000)
+#define MOVE_UP_M MOVE_VERT(-1200)
+#define MOVE_DOWN_M MOVE_VERT(1200)
+#define MOVE_LEFT_M MOVE_HOR(-1200)
+#define MOVE_RIGHT_M MOVE_HOR(1200)
 
-#define MOVE_UP_F MOVE_VERT(-3000)
-#define MOVE_DOWN_F MOVE_VERT(3000)
-#define MOVE_LEFT_F MOVE_HOR(-3000)
-#define MOVE_RIGHT_F MOVE_HOR(3000)
+#define MOVE_UP_F MOVE_VERT(-3500)
+#define MOVE_DOWN_F MOVE_VERT(3500)
+#define MOVE_LEFT_F MOVE_HOR(-3500)
+#define MOVE_RIGHT_F MOVE_HOR(3500)
 
 #define SCROLL_UP_F SCROLL_VERT(30)
 #define SCROLL_DOWN_F SCROLL_VERT(-30)
@@ -55,6 +55,13 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
+        sln: behavior_sticky_layer_nq {
+			compatible = "zmk,behavior-sticky-key";
+			label = "STICKY_LAYER";
+			#binding-cells = <1>;
+			release-after-ms = <2000>;
+			bindings = <&mo>;
+		};
         sm: sticky_momentary_layer {
             compatible = "zmk,behavior-hold-tap";
             label = "STICKY_MOMENTARY_LAYER";
@@ -63,7 +70,7 @@
             quick-tap-ms = <50>;
             global-quick-tap;
             flavor = "balanced";
-            bindings = <&mo>, <&sl>;
+            bindings = <&mo>, <&sln>;
         };
 
         mmvf: mouse_move_fast {
