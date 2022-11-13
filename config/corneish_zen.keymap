@@ -3,15 +3,15 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/mouse.h>
 
-#define MOVE_UP_M MOVE_VERT(-1200)
-#define MOVE_DOWN_M MOVE_VERT(1200)
-#define MOVE_LEFT_M MOVE_HOR(-1200)
-#define MOVE_RIGHT_M MOVE_HOR(1200)
+#define MOVE_UP_M MOVE_VERT(-1500)
+#define MOVE_DOWN_M MOVE_VERT(1500)
+#define MOVE_LEFT_M MOVE_HOR(-1500)
+#define MOVE_RIGHT_M MOVE_HOR(1500)
 
-#define MOVE_UP_F MOVE_VERT(-3000)
-#define MOVE_DOWN_F MOVE_VERT(3000)
-#define MOVE_LEFT_F MOVE_HOR(-3000)
-#define MOVE_RIGHT_F MOVE_HOR(3000)
+#define MOVE_UP_F MOVE_VERT(-4000)
+#define MOVE_DOWN_F MOVE_VERT(4000)
+#define MOVE_LEFT_F MOVE_HOR(-4000)
+#define MOVE_RIGHT_F MOVE_HOR(4000)
 
 #define SCROLL_UP_F SCROLL_VERT(30)
 #define SCROLL_DOWN_F SCROLL_VERT(-30)
@@ -34,14 +34,14 @@
             tapping-term-ms = <300>;
             quick-tap-ms = <150>;
             global-quick-tap;
-            flavor = "balanced";
+            flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
         hms: homerow_mods_shift {
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODS_SHFT";
             #binding-cells = <2>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <220>;
             quick-tap-ms = <50>;
             global-quick-tap;
             flavor = "balanced";
@@ -55,7 +55,7 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-        sll: behavior_sticky_layer_2_sec {
+        sll: behavior_sticky_layer_sec {
             compatible = "zmk,behavior-sticky-key";
             label = "STICKY_LAYER";
             #binding-cells = <1>;
@@ -96,14 +96,14 @@
         compatible = "zmk,keymap";
 
         default_layer {
-            label = "COLEMAK";
+            label = "QWERTY";
             bindings = <
 
-   &kp TAB     &kp Q         &kp W       &kp F       &kp P         &kp B                      &kp J      &kp L         &kp U       &kp Y       &kp SEMI     &kp BSLH
+   &kp TAB     &kp Q         &kp W       &kp E       &kp R         &kp T                      &kp Y      &kp U         &kp I       &kp O       &kp P           &kp BSLH
 
-   &kp ESC     &hm LCTRL A   &hm LALT R  &hm LGUI S  &hms LSHFT T  &kp G                      &kp M      &hms RSHFT N  &hm RGUI E  &hm RALT I  &hm RCTRL O  &kp SQT
+   &kp ESC     &hm LCTRL A   &hm LALT S  &hm LGUI D  &hms LSHFT F  &kp G                      &kp H      &hms RSHFT J  &hm RGUI K  &hm RALT L  &hm RCTRL SEMI  &kp SQT
 
-   &caps_word  &kp Z         &kp X       &kp C       &kp D         &kp V                      &kp K      &kp H         &kp COMMA   &kp DOT     &kp FSLH     &kp CAPS
+   &caps_word  &kp Z         &kp X       &kp C       &kp V         &kp B                      &kp N      &kp M         &kp COMMA   &kp DOT     &kp FSLH        &kp CAPS
 
 
                                          &to 3       &kp SPACE     &sm 2 2                    &kp RET    &sm 1 1         &bspc_del
@@ -139,18 +139,18 @@
             >;
         };
 
-        mouse_layer_fast {
-            label = "MOUSE_FAST";
+        mouse_layer {
+            label = "MOUSE";
             bindings = <
 
-   &kp TAB  &none      &none               &mmvf MOVE_UP_F     &none               &none               &none       &none       &none     &none     &none      &none
+   &kp TAB  &none      &none             &mmv MOVE_UP_M     &none              &none               &none       &none       &none     &none     &none      &none
 
-   &mo 5    &mo 4      &mmvf MOVE_LEFT_F   &mmvf MOVE_DOWN_F   &mmvf MOVE_RIGHT_F  &none               &none       &kp RSHFT   &kp RGUI  &kp RALT  &kp RCTRL  &none
+   &mo 6    &mo 4      &mmv MOVE_LEFT_M  &mmv MOVE_DOWN_M   &mmv MOVE_RIGHT_M  &none               &none       &kp RSHFT   &kp RGUI  &kp RALT  &kp RCTRL  &none
 
-   &none    &kp Z      &kp X               &kp C               &kp D               &kp V               &none       &none       &none     &none     &none      &none
+   &none    &mo 5      &kp X             &kp C              &kp D              &kp V               &none       &none       &none     &none     &none      &none
 
 
-                                           &mkp MCLK           &mkp LCLK           &mkp RCLK           &mkp RCLK   &mkp LCLK   &to 0
+                                         &mkp MCLK          &mkp LCLK          &mkp RCLK           &mkp RCLK   &mkp LCLK   &to 0
             >;
         };
 
@@ -158,14 +158,29 @@
             label = "MOUSE_PREC";
             bindings = <
 
-   &kp TAB  &none      &none             &mmv MOVE_UP_M     &none              &none               &none       &none       &none     &none     &none      &none
+   &kp TAB  &none      &none             &mmv MOVE_UP       &none              &none               &none       &none       &none     &none     &none      &none
 
-   &trans   &trans     &mmv MOVE_LEFT_M  &mmv MOVE_DOWN_M   &mmv MOVE_RIGHT_M  &none               &none       &kp RSHFT   &kp RGUI  &kp RALT  &kp RCTRL  &none
+   &mo 6    &trans     &mmv MOVE_LEFT    &mmv MOVE_DOWN     &mmv MOVE_RIGHT    &none               &none       &kp RSHFT   &kp RGUI  &kp RALT  &kp RCTRL  &none
 
-   &none    &kp Z      &kp X             &kp C              &kp D              &kp V               &none       &none       &none     &none     &none      &none
+   &none    &mo 5      &kp X             &kp C              &kp D              &kp V               &none       &none       &none     &none     &none      &none
 
 
                                          &mkp MCLK          &mkp LCLK          &mkp RCLK           &mkp RCLK   &mkp LCLK   &to 0
+            >;
+        };
+
+        mouse_layer_fast {
+            label = "MOUSE_FAST";
+            bindings = <
+
+   &kp TAB  &none      &none               &mmvf MOVE_UP_F     &none               &none               &none       &none       &none     &none     &none      &none
+
+   &mo 6    &trans     &mmvf MOVE_LEFT_F   &mmvf MOVE_DOWN_F   &mmvf MOVE_RIGHT_F  &none               &none       &kp RSHFT   &kp RGUI  &kp RALT  &kp RCTRL  &none
+
+   &none    &trans     &kp X               &kp C               &kp D               &kp V               &none       &none       &none     &none     &none      &none
+
+
+                                           &mkp MCLK           &mkp LCLK           &mkp RCLK           &mkp RCLK   &mkp LCLK   &to 0
             >;
         };
 
@@ -177,7 +192,7 @@
 
    &trans   &trans     &mwha SCROLL_LEFT_F  &mwha SCROLL_DOWN_F   &mwha SCROLL_RIGHT_F  &none               &none       &kp RSHFT   &kp RGUI  &kp RALT  &kp RCTRL  &none
 
-   &none    &kp Z      &kp X                &kp C                 &kp D                 &kp V               &none       &none       &none     &none     &none      &none
+   &none    &trans     &kp X                &kp C                 &kp D                 &kp V               &none       &none       &none     &none     &none      &none
 
 
                                             &mkp MCLK             &mkp LCLK             &mkp RCLK           &mkp RCLK   &mkp LCLK   &to 0
