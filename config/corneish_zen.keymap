@@ -13,6 +13,11 @@
 #define MOVE_LEFT_F MOVE_HOR(-3500)
 #define MOVE_RIGHT_F MOVE_HOR(3500)
 
+#define SCROLL_UP_M SCROLL_VERT(15)
+#define SCROLL_DOWN_M SCROLL_VERT(-15)
+#define SCROLL_LEMT_M SCROLL_HOR(-15)
+#define SCROLL_RIGHT_M SCROLL_HOR(15)
+
 #define SCROLL_UP_F SCROLL_VERT(30)
 #define SCROLL_DOWN_F SCROLL_VERT(-30)
 #define SCROLL_LEFT_F SCROLL_HOR(-30)
@@ -171,14 +176,14 @@
             label = "SCROLL";
             bindings = <
 
-   &trans   &trans    &trans             &mwha SCROLL_UP    &trans              &trans            &trans   &trans   &trans   &trans   &trans   &trans   
+   &trans   &trans    &trans               &mwha SCROLL_UP_M    &trans                &trans            &trans   &trans   &trans   &trans   &trans   &trans   
                                                                                                                                                             
-   &trans   &trans    &mwha SCROLL_LEFT  &mwha SCROLL_DOWN  &mwha SCROLL_RIGHT  &trans            &trans   &trans   &trans   &trans   &trans   &trans   
+   &trans   &trans    &mwha SCROLL_LEFT_M  &mwha SCROLL_DOWN_M  &mwha SCROLL_RIGHT_M  &trans            &trans   &trans   &trans   &trans   &trans   &trans   
                                                                                                                                                             
-   &trans   &trans    &trans             &trans             &trans              &trans            &trans   &trans   &trans   &trans   &trans   &trans   
+   &trans   &trans    &trans               &trans               &trans                &trans            &trans   &trans   &trans   &trans   &trans   &trans   
                                                                                                                                                               
                                                                                                                                                               
-                                         &trans             &trans              &trans            &trans   &trans   &trans                              
+                                           &trans               &trans                &trans            &trans   &trans   &trans                              
             >;
         };
 
