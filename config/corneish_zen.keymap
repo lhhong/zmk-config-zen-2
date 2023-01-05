@@ -146,11 +146,11 @@
             label = "MOUSE";
             bindings = <
 
-   &kp TAB  &none     &none             &mmv MOVE_UP_M     &none              &kp T                   &kp DOWN    &kp RIGHT        &kp UP         &none           &kp C_VOL_UP      &kp C_BRI_UP
+   &kp TAB  &trans    &trans            &mmv MOVE_UP_M     &trans             &trans                  &kp DOWN    &kp RIGHT        &kp UP         &none           &kp C_VOL_UP      &kp C_BRI_UP
                                                                                                                                                                                                
    &kp ESC  &mo 5     &mmv MOVE_LEFT_M  &mmv MOVE_DOWN_M   &mmv MOVE_RIGHT_M  &mkp MCLK               &kp RET     &hms RSHFT LEFT  &hm RGUI DOWN  &hm RALT RIGHT  &hm RCTRL C_MUTE  &kp C_BRI_AUTO
                                                                                                                                                                                                
-   &mo 4    &mo 4     &kp X             &kp C              &kp V              &kp B                   &kp UP      &kp LEFT         &none          &none           &kp C_VOL_DN      &kp C_BRI_DN
+   &mo 4    &mo 4     &trans            &trans             &trans             &trans                  &kp UP      &kp LEFT         &none          &none           &kp C_VOL_DN      &kp C_BRI_DN
 
 
                                         &to 3              &mkp LCLK          &mkp RCLK               &mkp RCLK   &mkp LCLK        &to 0
